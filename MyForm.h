@@ -1,6 +1,7 @@
 #pragma once
-const int n = 4; // розмір квадратної матриці 
-int mat[n][n];
+const int n = 4;// кількість рядків
+const int m = 5; // кількість стовпців
+int mat[n][m];
 
 namespace lz7 {
 
@@ -42,13 +43,23 @@ namespace lz7 {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ обчислитиToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ заповнитиToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ сортуватиToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ очиститиToolStripMenuItem;
+
+
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ проАвтораToolStripMenuItem;
+	private: System::ComponentModel::IContainer^ components;
 	protected:
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -57,6 +68,7 @@ namespace lz7 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
@@ -64,9 +76,17 @@ namespace lz7 {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->обчислитиToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->заповнитиToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->сортуватиToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->очиститиToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->проАвтораToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -128,6 +148,63 @@ namespace lz7 {
 			this->label1->Size = System::Drawing::Size(0, 16);
 			this->label1->TabIndex = 5;
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->обчислитиToolStripMenuItem,
+					this->очиститиToolStripMenuItem, this->проАвтораToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1003, 28);
+			this->menuStrip1->TabIndex = 6;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// обчислитиToolStripMenuItem
+			// 
+			this->обчислитиToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->заповнитиToolStripMenuItem,
+					this->сортуватиToolStripMenuItem
+			});
+			this->обчислитиToolStripMenuItem->Name = L"обчислитиToolStripMenuItem";
+			this->обчислитиToolStripMenuItem->Size = System::Drawing::Size(169, 24);
+			this->обчислитиToolStripMenuItem->Text = L"Робота з програмою";
+			// 
+			// заповнитиToolStripMenuItem
+			// 
+			this->заповнитиToolStripMenuItem->Name = L"заповнитиToolStripMenuItem";
+			this->заповнитиToolStripMenuItem->Size = System::Drawing::Size(167, 26);
+			this->заповнитиToolStripMenuItem->Text = L"Заповнити";
+			this->заповнитиToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// сортуватиToolStripMenuItem
+			// 
+			this->сортуватиToolStripMenuItem->Name = L"сортуватиToolStripMenuItem";
+			this->сортуватиToolStripMenuItem->Size = System::Drawing::Size(167, 26);
+			this->сортуватиToolStripMenuItem->Text = L"Сортувати";
+			this->сортуватиToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// очиститиToolStripMenuItem
+			// 
+			this->очиститиToolStripMenuItem->Name = L"очиститиToolStripMenuItem";
+			this->очиститиToolStripMenuItem->Size = System::Drawing::Size(124, 24);
+			this->очиститиToolStripMenuItem->Text = L"Про програму";
+			this->очиститиToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::очиститиToolStripMenuItem_Click);
+			// 
+			// проАвтораToolStripMenuItem
+			// 
+			this->проАвтораToolStripMenuItem->Name = L"проАвтораToolStripMenuItem";
+			this->проАвтораToolStripMenuItem->Size = System::Drawing::Size(104, 24);
+			this->проАвтораToolStripMenuItem->Text = L"Про автора";
+			this->проАвтораToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::проАвтораToolStripMenuItem_Click);
+			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -139,12 +216,16 @@ namespace lz7 {
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -157,18 +238,18 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	dataGridView1->Columns->Clear();
 	dataGridView1->Rows->Clear();
 
-	// Додати стовпці
-	for (int i = 0; i < n; i++) {
+	// Додати стовпці (їх кількість = m)
+	for (int i = 0; i < m; i++) {
 		dataGridView1->Columns->Add(i.ToString(), "C" + i.ToString());
 	}
 
-	// Додати рядки
+	// Додати рядки (їх кількість = n)
 	dataGridView1->Rows->Add(n);
 
 	// Заповнення випадковими числами
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			mat[i][j] = rand->Next(1, 100); 
+		for (int j = 0; j < m; j++) {
+			mat[i][j] = rand->Next(1, 100);
 			dataGridView1->Rows[i]->Cells[j]->Value = mat[i][j];
 		}
 	}
@@ -177,7 +258,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 	// Знаходження суми квадратів елементів двовимірного масиву
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < m; j++) {
 			sum += mat[i][j] * mat[i][j];
 		}
 	}
@@ -186,8 +267,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Сортування парних стовпців (0, 2, 4...) за спаданням
-	for (int j = 0; j < n; j += 2) {
-		for (int i = 0; i < n - 1; i++) {
+	for (int j = 0; j < m; j += 2) { // цикл по стовпцях (межа m)
+		for (int i = 0; i < n - 1; i++) { // цикл по рядках для сортування (межа n)
 			for (int k = i + 1; k < n; k++) {
 				if (mat[i][j] < mat[k][j]) {
 					int temp = mat[i][j];
@@ -202,18 +283,30 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	dataGridView2->Columns->Clear();
 	dataGridView2->Rows->Clear();
 
-	for (int i = 0; i < n; i++) {
+	// Додаємо стовпці (m)
+	for (int i = 0; i < m; i++) {
 		dataGridView2->Columns->Add(i.ToString(), "C" + i.ToString());
 	}
+	// Додаємо рядки (n)
 	dataGridView2->Rows->Add(n);
 
+	// Заповнюємо таблицю відсортованим масивом
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < m; j++) {
 			dataGridView2->Rows[i]->Cells[j]->Value = mat[i][j];
 		}
 	}
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void заповнитиToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void очиститиToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show("Програма для роботи з двовимірними масивами. ", "Про програму", MessageBoxButtons::OK, MessageBoxIcon::Information);
+}
+private: System::Void проАвтораToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show("Серветнік Лілія Ярославівна \nГрупа: 3СОМ \nКурс: 3", "Про автора", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
 };
 }
